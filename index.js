@@ -23,6 +23,7 @@ app.listen(port, function () {
 
 app.get("/covid_data", function (req, res) {
   const data = readFromFileSystem("/covid_data.txt", res);
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.status(200).send(data);
 });
 
