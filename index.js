@@ -15,6 +15,7 @@ app.use(helmet());
 app.listen(port, function () {
   console.log("Coronavirus Tracker service on port 💣", port);
   cron.schedule("*/10 * * * *", () => {
+    console.log("CRON: fetching data : ", Date());
     getCovidData();
   });
 });
